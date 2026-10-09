@@ -1,0 +1,12 @@
+# dsh-session-search — literal (incl. single-CJK-character) search over local
+# DSH session logs.
+#
+# Host half: decompresses ~/.dsh/sessions/**/session.vN.jsonl.zstd frame by
+# frame, builds an in-memory plain-substring index, and serves it at
+# /dsh-session-search/api/search.
+#
+# Client half: declared through package.json's `dsh.client` and bound to the
+# row whose `name` is the bare package name (a sub-path row would not carry it).
+- insert:
+    - id: session-search
+      name: dsh-session-search
